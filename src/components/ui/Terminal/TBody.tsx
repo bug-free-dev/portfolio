@@ -32,7 +32,7 @@ export const TerminalBody: React.FC<TerminalBodyProps> = ({
       <div
          ref={terminalBodyRef}
          className={clsx(
-            "terminal-body p-4 overflow-y-auto font-mono text-sm h-100 bg-(--card-bg) text-(--card-fg) scrollbar"
+            "terminal-body p-4 overflow-y-auto font-mono text-sm h-180 bg-(--card-bg) text-(--card-fg) scrollbar"
          )}
          onClick={handleClick}
       >

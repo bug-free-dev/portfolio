@@ -20,7 +20,6 @@ export const TerminalInput: React.FC<TerminalInputProps> = ({
       <span className="text-green-600 font-semibold select-none">{prompt}</span>
       <input
          type="text"
-         autoFocus={true}
          value={value}
          onChange={(e) => onChange(e.target.value)}
          onKeyDown={onKeyDown}

@@ -2,13 +2,12 @@ import React, { useState, useRef, useLayoutEffect } from "react";
 import clsx from "clsx";
 import type { TerminalCommand } from "./Ttypes";
 import { TerminalBody, TerminalHeader } from ".";
-
+import { executeCommand, shouldClearTerminal, shouldExitTerminal } from "../../../cmd";
 
 interface TerminalProps {
    title?: string;
    className?: string;
    onClose?: () => void;
-   onCommand?: (command: string) => Promise<React.ReactNode> | React.ReactNode;
    initialCommands?: TerminalCommand[];
    prompt?: string;
    maxHistory?: number;
@@ -19,7 +18,6 @@ interface TerminalProps {
 const Terminal: React.FC<TerminalProps> = ({
    title = "Terminal",
    className,
-   onCommand,
    onClose,
    initialCommands = [],
    prompt = "➜",
@@ -70,22 +68,28 @@ const Terminal: React.FC<TerminalProps> = ({
       setIsProcessing(true);
       const timestamp = new Date();
 
+      // Add command to history immediately
       pushHistory({
          input: trimmed,
          output: null,
          timestamp: showTimestamp ? timestamp : undefined,
       });
+
       setCommandHistory((prev) => [...prev, trimmed]);
       setHistoryIndex(-1);
       setCurrentInput("");
 
       try {
-         if (onCommand) {
-            const maybe = onCommand(trimmed);
-            const result = maybe instanceof Promise ? await maybe : maybe;
-            replaceLastOutput(result);
+         // Execute command using our command system
+         const result = await executeCommand(trimmed);
+
+         // Check for special commands
+         if (shouldClearTerminal(result)) {
+            setHistory([]);
+         } else if (shouldExitTerminal(result)) {
+            onClose?.();
          } else {
-            replaceLastOutput(<div>{trimmed}</div>);
+            replaceLastOutput(result);
          }
       } catch (err) {
          replaceLastOutput(
@@ -133,14 +137,14 @@ const Terminal: React.FC<TerminalProps> = ({
 
    const containerClass = clsx(
       "terminal-container rounded-lg overflow-hidden",
-      "border border-[color:var(--card-border)]",
+      "border border-[var(--card-border)]",
       "transition-all duration-300",
       className
    );
 
    return (
       <div className={containerClass}>
-         <TerminalHeader title={title} onClose={onClose}/>
+         <TerminalHeader title={title} onClose={onClose} />
          <TerminalBody
             history={history}
             currentInput={currentInput}

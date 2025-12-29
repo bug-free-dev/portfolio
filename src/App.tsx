@@ -1,80 +1,60 @@
-import { useState } from "react";
+import  { useState } from "react";
 import { Navbar } from "./components/ui/Navbar";
-import { Footer } from "./components/ui/Footer";
-import { TerminalOverlay } from "./components/ui/Terminal";
-
-import {
-   TerminalSuccess,
-   TerminalError,
-   TerminalInfo,
-   TerminalList,
-} from "./components/ui/Terminal";
-
-import { Card, CardHeader, CardBody, CardFooter } from "./components/ui/Card";
+import { Footer } from "./components/sections/Footer";
+import { TerminalOverlay } from "./components/ui/Terminal/TOverlay";
 import Button from "./components/ui/Button";
 
-export default function DemoApp() {
+function App() {
    const [terminalOpen, setTerminalOpen] = useState(false);
 
-   const handleCommand = async (command: string) => {
-      const cmd = command.trim().toLowerCase();
-
-      switch (cmd) {
-         case "help":
-            return (
-               <TerminalList
-                  items={[
-                     "help - Show commands",
-                     "about - About me",
-                     "projects - List projects",
-                     "contact - Contact info",
-                     "exit - Close terminal",
-                  ]}
-               />
-            );
-
-         case "about":
-            return <TerminalSuccess>Hi! I’m Saurabh Kumar, Frontend Developer.</TerminalSuccess>;
-
-         case "info":
-            return <TerminalInfo>Portfolio v1.0 – React + Design System</TerminalInfo>;
-
-         case "exit":
-            setTerminalOpen(false);
-            return "Closing terminal…";
-
-         default:
-            return <TerminalError>Command not found: {cmd}</TerminalError>;
-      }
-   };
-
    return (
-      <>
-         {/* NAVBAR */}
+      <div className="min-h-screen flex flex-col">
          <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
 
-         {/* TERMINAL OVERLAY */}
-         <TerminalOverlay
-            open={terminalOpen}
-            onClose={() => setTerminalOpen(false)}
-            onCommand={handleCommand}
-         />
+         <main className="flex-1">
+            {/* Hero Section */}
+            <section className="max-w-6xl mx-auto px-6 py-20">
+               <div className="space-y-6">
+                  <h1 className="text-5xl md:text-7xl font-bold tracking-tight">Saurabh Kumar</h1>
+                  <p className="text-xl text-(--muted) max-w-2xl">
+                     Frontend Engineer building elegant interfaces with React, Next.js, and modern
+                     web technologies.
+                  </p>
 
-         {/* PAGE CONTENT */}
-         <div className="min-h-screen bg-(--app-bg) text-(--app-fg) p-10 space-y-10">
+                  <div className="flex flex-wrap gap-3">
+                     <Button
+                        variant="solid"
+                        size="lg"
+                        leftIcon="🚀"
+                        onClick={() => setTerminalOpen(true)}
+                     >
+                        Launch Terminal
+                     </Button>
+                     <Button
+                        variant="outline"
+                        size="lg"
+                        leftIcon="🐙"
+                        onClick={() => window.open("https://github.com/bug-free-dev", "_blank")}
+                     >
+                        GitHub
+                     </Button>
+                  </div>
+               </div>
+            </section>
 
-            {/* Cards */}
-            <div className="flex gap-8">
-               <Card className="w-[320px]">
-                  <CardHeader>💻 Terminal</CardHeader>
-                  <CardBody>Open the terminal to see the work and craftsmanship.</CardBody>
-                  <CardFooter>
-                     <Button size="sm" onClick={()=>setTerminalOpen(true)}>Launch</Button>
-                  </CardFooter>
-               </Card>
-            </div>
-         </div>
+            {/* Add your other sections here */}
+            {/* About Section */}
+            {/* Projects Section */}
+            {/* Skills Section */}
+            {/* Contact Section */}
+         </main>
+
          <Footer />
-      </>
+
+         {/* Terminal Overlay */}
+         <TerminalOverlay open={terminalOpen} onClose={() => setTerminalOpen(false)} />
+      </div>
    );
 }
+
+export default App;
