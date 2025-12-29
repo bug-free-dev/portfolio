@@ -1,0 +1,65 @@
+
+:root {
+  /* App */
+  --app-bg: #ffffff;
+  --app-fg: #0a0a0a;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  --radius: 0.5rem;
+
+  --accent: #2e2e2e;
+  
+  --zinc-50:  #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8; 
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --zinc-600: #52525b;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+
+  --muted: var(--zinc-500);
+  --muted-light: var(--zinc-400);
+
+  --success: #9bdf1d;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  --info: #7cb7fc; 
+
+  --btn-bg: #ffffff;
+  --btn-bg-soft: var(--zinc-100);
+  --btn-fg: #000000;
+  --btn-border: var(--zinc-300);
+  --btn-shadow: 4px 4px 0 var(--zinc-300);
+  --btn-shadow-hover: 6px 6px 0 var(--zinc-300);
+
+  --card-bg: #ffffff;
+  --card-bg-soft: var(--zinc-50);
+  --card-fg: #000000;
+  --card-border: var(--zinc-300);
+  --card-shadow: 4px 4px 0 var(--zinc-300);
+  --card-shadow-hover: 6px 6px 0 var(--zinc-200);
+
+  --input-bg: var(--zinc-50);
+  --input-fg: #000000;
+  --input-border: var(--zinc-300);
+  --input-border-focus: #000000;
+  --input-shadow: 2px 2px 0 rgba(0,0,0,0.05);
+
+  --nav-bg: rgba(255,255,255,0.9);
+  --nav-border: var(--zinc-200);
+  --nav-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+  --footer-bg: var(--zinc-50);
+  --footer-fg: var(--zinc-500);
+  --footer-border: var(--zinc-200);
+
+  --shadow-sm: 2px 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 4px 4px 8px rgba(0,0,0,0.08);
+  --shadow-lg: 6px 6px 12px rgba(0,0,0,0.12);
+}
