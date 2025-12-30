@@ -33,7 +33,6 @@ export const executeCommand = async (input: string): Promise<React.ReactNode> =>
    try {
       const result = command.fn(args);
 
-      // Handle both sync and async commands
       if (result instanceof Promise) {
          return await result;
       }

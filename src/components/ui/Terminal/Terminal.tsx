@@ -136,7 +136,7 @@ const Terminal: React.FC<TerminalProps> = ({
    };
 
    const containerClass = clsx(
-      "terminal-container rounded-lg overflow-hidden",
+      "rounded-lg overflow-hidden",
       "border border-[var(--card-border)]",
       "transition-all duration-300",
       className

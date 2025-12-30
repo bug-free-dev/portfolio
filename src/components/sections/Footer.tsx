@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { FiGithub, FiTwitter, FiMail, FiGlobe, FiInstagram } from "react-icons/fi";
 import { SiNpm } from "react-icons/si";
 
-export const Footer: React.FC = () => {
+const Footer: React.FC = () => {
    return (
       <footer
          className={clsx(
@@ -132,3 +132,4 @@ export const Footer: React.FC = () => {
       </footer>
    );
 };
+export default Footer;

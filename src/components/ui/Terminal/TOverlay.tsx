@@ -54,14 +54,14 @@ export const TerminalOverlay: React.FC<TerminalOverlayProps> = ({ open, onClose 
 
    return (
       <div
-         className="fixed inset-0 z-9999 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+         className="fixed inset-0 z-9999 bg-black/60 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
          onClick={onClose}
       >
          <div
             onClick={(e) => e.stopPropagation()}
             className={clsx(
-               "w-full max-w-4xl max-h-[90vh]",
-               "animate-terminal-in fade-in zoom-in duration-200"
+               "w-full max-w-4xl max-h-[90vh] min-w-0",
+               "animate-in fade-in zoom-in duration-200"
             )}
          >
             <Terminal

@@ -7,6 +7,7 @@ import {
    TerminalDivider,
    CommandGroup,
    FileItem,
+   TthemeCard,
 } from "../components/ui/Terminal/TOutput";
 
 export const help = () => (
@@ -246,16 +247,4 @@ export const man = (args: string[]) => {
    );
 };
 
-export const theme = () => (
-   <TerminalCard variant="warning">
-      <div className="text-sm space-y-2">
-         <div className="font-semibold">Theme Switcher</div>
-         <div className="text-(--muted)">
-            Theme switching is coming soon! Currently in light mode.
-         </div>
-         <div className="text-xs text-(--muted) mt-2">
-            Stay tuned for dark mode, catppuccin, and more themes...
-         </div>
-      </div>
-   </TerminalCard>
-);
+export const theme = (args: string[]) => <TthemeCard args={args} />;

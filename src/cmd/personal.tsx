@@ -124,28 +124,3 @@ export const location = () => (
       </TerminalCard>
    </div>
 );
-
-export const resume = () => (
-   <div className="space-y-3">
-      <TerminalSection title="Resume / CV">
-         <TerminalList
-            items={[
-               "📄 Full resume available on request",
-               "💼 LinkedIn profile (coming soon)",
-               "🐙 Check out my GitHub for live work",
-            ]}
-         />
-      </TerminalSection>
-
-      <TerminalCard variant="muted">
-         <div className="text-sm space-y-2">
-            <div>Want to see my work? Try these commands:</div>
-            <div className="flex flex-wrap gap-2 mt-2">
-               <TerminalBadge>projects</TerminalBadge>
-               <TerminalBadge>skills</TerminalBadge>
-               <TerminalBadge>github</TerminalBadge>
-            </div>
-         </div>
-      </TerminalCard>
-   </div>
-);

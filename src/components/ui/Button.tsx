@@ -36,7 +36,7 @@ const Button: React.FC<ButtonProps> = ({
          "bg-[var(--btn-bg)] text-[var(--btn-fg)]",
          "border border-[var(--btn-border)]",
          "shadow-[var(--btn-shadow)]",
-         "hover:shadow-[var(--btn-shadow-hover)]",
+         "hover:shadow-[var(--btn-shadow-hover)] hover:text-(--muted)",
          "active:translate-x-[2px] active:translate-y-[2px]",
          "active:shadow-none"
       ),
@@ -44,13 +44,13 @@ const Button: React.FC<ButtonProps> = ({
       outline: clsx(
          "bg-transparent text-[var(--btn-fg)]",
          "border border-[var(--btn-border)]",
-         "hover:bg-[var(--btn-bg-soft)]",
+         "hover:bg-[var(--btn-bg-soft)] hover:text-(--muted)",
          "active:opacity-80"
       ),
 
       ghost: clsx(
          "bg-transparent text-[var(--btn-fg)]",
-         "hover:bg-[var(--btn-bg-soft)]",
+         "hover:bg-[var(--btn-bg-soft)] hover:text-(--muted)",
          "active:opacity-70"
       ),
    };

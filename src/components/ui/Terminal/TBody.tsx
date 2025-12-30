@@ -32,7 +32,7 @@ export const TerminalBody: React.FC<TerminalBodyProps> = ({
       <div
          ref={terminalBodyRef}
          className={clsx(
-            "terminal-body p-4 overflow-y-auto font-mono text-sm h-180 bg-(--card-bg) text-(--card-fg) scrollbar"
+            "p-4 overflow-y-auto font-mono text-sm h-100 md:h-120 lg:h-180 bg-(--card-bg) text-(--card-fg) scrollbar"
          )}
          onClick={handleClick}
       >
@@ -57,7 +57,6 @@ export const TerminalBody: React.FC<TerminalBodyProps> = ({
             value={currentInput}
             onChange={onInputChange}
             onKeyDown={onKeyDown}
-            prompt={prompt}
             isProcessing={isProcessing}
          />
       </div>

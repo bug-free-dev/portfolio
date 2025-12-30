@@ -38,11 +38,6 @@ export const commandMap: Record<string, CommandInfo> = {
       description: "Current location",
       category: "personal",
    },
-   resume: {
-      fn: personal.resume,
-      description: "Resume and CV info",
-      category: "personal",
-   },
 
    // Portfolio Commands
    projects: {
@@ -126,7 +121,7 @@ export const commandMap: Record<string, CommandInfo> = {
    },
    theme: {
       fn: system.theme,
-      description: "Toggle theme (coming soon)",
+      description: "Toggle theme",
       category: "system",
    },
    date: {

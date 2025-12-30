@@ -1,4 +1,4 @@
 export * from "./Badge";
-export * from "./Card";
+export * from "./Cards";
 export * from "./FileItem";
 export * from "./Progress";
