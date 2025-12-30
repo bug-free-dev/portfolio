@@ -124,6 +124,11 @@ export const commandMap: Record<string, CommandInfo> = {
       description: "Close terminal",
       category: "system",
    },
+   theme: {
+      fn: system.theme,
+      description: "Toggle theme (coming soon)",
+      category: "system",
+   },
    date: {
       fn: system.date,
       description: "Show date and time",
@@ -168,7 +173,7 @@ export const commandMap: Record<string, CommandInfo> = {
    // Easter Eggs
    sudo: {
       fn: easterEggs.sudo,
-      description: "Try it 😏",
+      description: "Try it",
       category: "fun",
    },
    hack: {
@@ -224,6 +229,7 @@ export const getCommand = (cmd: string): CommandInfo | undefined => {
 
 export const getCommandsByCategory = (category: CommandInfo["category"]) => {
    return Object.entries(commandMap)
+      
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .filter(([_, info]) => info.category === category)
       .map(([name]) => name);

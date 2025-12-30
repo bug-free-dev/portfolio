@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
    TerminalSection,
@@ -6,107 +5,90 @@ import {
    TerminalCard,
    TerminalCode,
    TerminalDivider,
-   TerminalTable,
+   CommandGroup,
+   FileItem,
 } from "../components/ui/Terminal/TOutput";
 
 export const help = () => (
-   <div className="space-y-4">
+   <div className="space-y-5">
       <TerminalSection title="Available Commands">
          <div className="space-y-4">
-            <div>
-               <div className="text-xs font-semibold text-(--accent) uppercase tracking-wide mb-2">
-                  Personal
-               </div>
-               <TerminalTable
-                  data={[
-                     { label: "whoami", value: "Brief introduction" },
-                     { label: "about", value: "Detailed bio and philosophy" },
-                     { label: "bio", value: "Same as about" },
-                     { label: "contact", value: "Contact information" },
-                     { label: "resume", value: "Resume and CV info" },
-                     { label: "location", value: "Current location" },
-                  ]}
-               />
-            </div>
+            <CommandGroup
+               title="Personal"
+               commands={[
+                  { name: "whoami", description: "Brief introduction" },
+                  { name: "about", description: "Detailed bio and philosophy" },
+                  { name: "bio", description: "Same as about" },
+                  { name: "contact", description: "Contact information" },
+                  { name: "resume", description: "Resume and CV info" },
+                  { name: "location", description: "Current location" },
+               ]}
+            />
 
-            <div>
-               <div className="text-xs font-semibold text-(--accent) uppercase tracking-wide mb-2">
-                  Portfolio
-               </div>
-               <TerminalTable
-                  data={[
-                     { label: "projects", value: "List all projects" },
-                     { label: "project <name>", value: "View specific project" },
-                     { label: "skills", value: "Technical skills" },
-                     { label: "stats", value: "Portfolio statistics" },
-                     { label: "github", value: "Open GitHub profile" },
-                  ]}
-               />
-            </div>
+            <CommandGroup
+               title="Portfolio"
+               commands={[
+                  { name: "projects", description: "List all projects" },
+                  { name: "project <name>", description: "View specific project" },
+                  { name: "skills", description: "Technical skills" },
+                  { name: "stats", description: "Portfolio statistics" },
+                  { name: "github", description: "Open GitHub profile" },
+               ]}
+            />
 
-            <div>
-               <div className="text-xs font-semibold text-(--accent) uppercase tracking-wide mb-2">
-                  Social
-               </div>
-               <TerminalTable
-                  data={[
-                     { label: "social", value: "All social media links" },
-                     { label: "email", value: "Email contact" },
-                     { label: "instagram", value: "Open Instagram" },
-                     { label: "twitter", value: "Open Twitter/X" },
-                     { label: "npm", value: "Open npm profile" },
-                     { label: "links", value: "Quick links overview" },
-                  ]}
-               />
-            </div>
+            <CommandGroup
+               title="Social"
+               commands={[
+                  { name: "social", description: "All social media links" },
+                  { name: "email", description: "Email contact" },
+                  { name: "instagram", description: "Open Instagram" },
+                  { name: "twitter", description: "Open Twitter/X" },
+                  { name: "npm", description: "Open npm profile" },
+                  { name: "links", description: "Quick links overview" },
+               ]}
+            />
 
-            <div>
-               <div className="text-xs font-semibold text-(--accent) uppercase tracking-wide mb-2">
-                  System
-               </div>
-               <TerminalTable
-                  data={[
-                     { label: "help", value: "Show this help message" },
-                     { label: "clear", value: "Clear terminal screen" },
-                     { label: "exit", value: "Close terminal" },
-                     { label: "date", value: "Show current date/time" },
-                     { label: "echo <text>", value: "Print text" },
-                     { label: "pwd", value: "Print working directory" },
-                     { label: "ls", value: "List files" },
-                     { label: "cat <file>", value: "Read file content" },
-                     { label: "history", value: "Command history" },
-                  ]}
-               />
-            </div>
+            <CommandGroup
+               title="System"
+               commands={[
+                  { name: "help", description: "Show this help message" },
+                  { name: "clear", description: "Clear terminal screen" },
+                  { name: "exit", description: "Close terminal" },
+                  { name: "theme", description: "Toggle theme (coming soon)" },
+                  { name: "date", description: "Show current date/time" },
+                  { name: "echo <text>", description: "Print text" },
+                  { name: "pwd", description: "Print working directory" },
+                  { name: "ls", description: "List files" },
+                  { name: "cat <file>", description: "Read file content" },
+                  { name: "history", description: "Command history" },
+               ]}
+            />
 
-            <div>
-               <div className="text-xs font-semibold text-(--accent) uppercase tracking-wide mb-2">
-                  Fun
-               </div>
-               <TerminalTable
-                  data={[
-                     { label: "fortune", value: "Random dev quote" },
-                     { label: "sudo", value: "Try it 😏" },
-                     { label: "hack", value: "Matrix mode" },
-                     { label: "coffee", value: "Coffee break" },
-                  ]}
-               />
-            </div>
+            <CommandGroup
+               title="Fun"
+               commands={[
+                  { name: "fortune", description: "Random dev quote" },
+                  { name: "sudo", description: "Try it" },
+                  { name: "hack", description: "Matrix mode" },
+                  { name: "coffee", description: "Coffee break" },
+                  { name: "joke", description: "Tell a joke" },
+               ]}
+            />
          </div>
       </TerminalSection>
 
       <TerminalDivider />
 
       <TerminalCard variant="accent">
-         <div className="text-sm space-y-1">
-            <div className="font-semibold">💡 Pro Tips:</div>
+         <div className="space-y-2">
+            <div className="font-semibold">Pro Tips</div>
             <TerminalList
                items={[
                   "Use ↑/↓ arrows to navigate command history",
                   "Commands are case-insensitive",
-                  "Tab completion coming soon!",
+                  "Use Ctrl+L to clear terminal",
+                  "Use Ctrl+C to cancel current input",
                ]}
-               icon="→"
             />
          </div>
       </TerminalCard>
@@ -120,30 +102,32 @@ export const exit = () => "EXIT";
 export const date = () => {
    const now = new Date();
    return (
-      <div className="space-y-2">
-         <TerminalCard variant="muted">
-            <div className="space-y-1 text-sm">
-               <div className="flex items-center gap-2">
-                  <span className="text-(--muted)">Date:</span>
-                  <span className="font-mono">{now.toLocaleDateString()}</span>
-               </div>
-               <div className="flex items-center gap-2">
-                  <span className="text-(--muted)">Time:</span>
-                  <span className="font-mono">{now.toLocaleTimeString()}</span>
-               </div>
-               <div className="flex items-center gap-2">
-                  <span className="text-(--muted)">Timezone:</span>
-                  <span className="font-mono">IST (GMT+5:30)</span>
-               </div>
+      <TerminalCard variant="muted">
+         <div className="space-y-2 font-mono text-sm">
+            <div className="flex items-center gap-3">
+               <span className="text-(--muted) min-w-20">Date:</span>
+               <span className="font-semibold">{now.toLocaleDateString()}</span>
             </div>
-         </TerminalCard>
-      </div>
+            <div className="flex items-center gap-3">
+               <span className="text-(--muted) min-w-20">Time:</span>
+               <span className="font-semibold">{now.toLocaleTimeString()}</span>
+            </div>
+            <div className="flex items-center gap-3">
+               <span className="text-(--muted) min-w-20">Timezone:</span>
+               <span className="font-semibold">IST (GMT+5:30)</span>
+            </div>
+         </div>
+      </TerminalCard>
    );
 };
 
 export const echo = (args: string[]) => {
    if (args.length === 0) {
-      return <div className="text-sm text-(--muted)">Usage: echo &lt;text&gt;</div>;
+      return (
+         <div className="text-sm text-(--muted)">
+            Usage: <TerminalCode inline>echo &lt;text&gt;</TerminalCode>
+         </div>
+      );
    }
    return <div className="text-sm">{args.join(" ")}</div>;
 };
@@ -151,17 +135,13 @@ export const echo = (args: string[]) => {
 export const pwd = () => <TerminalCode inline>/home/saurabh/portfolio</TerminalCode>;
 
 export const ls = () => (
-   <div className="space-y-2">
-      <TerminalList
-         items={[
-            "📄 about.txt",
-            "📁 projects/",
-            "📄 skills.json",
-            "📄 contact.info",
-            "📄 README.md",
-            "📁 social/",
-         ]}
-      />
+   <div className="space-y-1">
+      <FileItem name="about.txt" type="file" />
+      <FileItem name="projects" type="folder" />
+      <FileItem name="skills.json" type="file" />
+      <FileItem name="contact.info" type="file" />
+      <FileItem name="README.md" type="file" />
+      <FileItem name="social" type="folder" />
    </div>
 );
 
@@ -169,8 +149,12 @@ export const cat = (args: string[]) => {
    if (args.length === 0) {
       return (
          <div className="text-sm space-y-2">
-            <div className="text-(--muted)">Usage: cat &lt;file&gt;</div>
-            <div className="text-xs text-(--muted)">Available files: README.md, about.txt, contact.info</div>
+            <div className="text-(--muted)">
+               Usage: <TerminalCode inline>cat &lt;file&gt;</TerminalCode>
+            </div>
+            <div className="text-xs text-(--muted)">
+               Available: README.md, about.txt, contact.info
+            </div>
          </div>
       );
    }
@@ -184,7 +168,7 @@ export const cat = (args: string[]) => {
                <div className="font-bold text-(--accent)"># Saurabh's Portfolio Terminal</div>
                <div>Welcome! This is an interactive terminal portfolio.</div>
                <div className="text-xs text-(--muted)">
-                  Type 'help' to see available commands.
+                  Type <TerminalCode inline>help</TerminalCode> to see available commands.
                </div>
             </div>
          </TerminalCard>
@@ -201,10 +185,10 @@ export const cat = (args: string[]) => {
       ),
       "contact.info": (
          <TerminalCard variant="muted">
-            <div className="text-sm space-y-1">
-               <div>📧 bugfreedev07@gmail.com</div>
-               <div>📍 Kanpur, India</div>
-               <div>🐙 github.com/bug-free-dev</div>
+            <div className="text-sm space-y-1 font-mono">
+               <div>bugfreedev07@gmail.com</div>
+               <div>Kanpur, India</div>
+               <div>github.com/bug-free-dev</div>
             </div>
          </TerminalCard>
       ),
@@ -229,14 +213,12 @@ export const history = () => (
 );
 
 export const version = () => (
-   <div className="space-y-2">
-      <TerminalCard variant="accent">
-         <div className="text-sm space-y-1">
-            <div className="font-bold">Portfolio Terminal v2.0</div>
-            <div className="text-(--muted)">Built with React + TypeScript</div>
-         </div>
-      </TerminalCard>
-   </div>
+   <TerminalCard variant="accent">
+      <div className="text-sm space-y-1">
+         <div className="font-bold">Portfolio Terminal v2.0</div>
+         <div className="text-(--muted)">Built with React + TypeScript + Vite</div>
+      </div>
+   </TerminalCard>
 );
 
 export const man = (args: string[]) => {
@@ -245,7 +227,8 @@ export const man = (args: string[]) => {
          <div className="text-sm space-y-2">
             <div>What manual page do you want?</div>
             <div className="text-xs text-(--muted)">
-               Try: man help, man whoami, man projects
+               Try: <TerminalCode inline>man help</TerminalCode>,{" "}
+               <TerminalCode inline>man whoami</TerminalCode>
             </div>
          </div>
       );
@@ -256,9 +239,23 @@ export const man = (args: string[]) => {
          <div className="text-sm space-y-2">
             <div className="font-bold">MANUAL: {args[0]}</div>
             <div className="text-(--muted)">
-               For detailed info, just type: <code className="text-(--accent)">{args[0]}</code>
+               For detailed info, just type: <TerminalCode inline>{args[0]}</TerminalCode>
             </div>
          </div>
       </TerminalCard>
    );
 };
+
+export const theme = () => (
+   <TerminalCard variant="warning">
+      <div className="text-sm space-y-2">
+         <div className="font-semibold">Theme Switcher</div>
+         <div className="text-(--muted)">
+            Theme switching is coming soon! Currently in light mode.
+         </div>
+         <div className="text-xs text-(--muted) mt-2">
+            Stay tuned for dark mode, catppuccin, and more themes...
+         </div>
+      </div>
+   </TerminalCard>
+);

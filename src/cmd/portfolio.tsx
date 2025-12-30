@@ -1,5 +1,4 @@
 import { projects, skills, skillsByCategory } from "../data";
-import { Card, CardHeader, CardBody, CardFooter } from "../components/ui/Card";
 import {
    TerminalSection,
    TerminalList,
@@ -9,75 +8,29 @@ import {
    TerminalLink,
    TerminalCard,
    TerminalEmptyState,
+   TerminalGrid,
+   TerminalCode,
 } from "../components/ui/Terminal/TOutput";
+import { FiFolder } from "react-icons/fi";
+import { ProjectCard } from "../components/ui/Card";
 
 export const projectsCmd = () => (
    <div className="space-y-4">
       <TerminalSection title="Featured Projects">
-         <div className="space-y-4">
+         <TerminalGrid cols={2}>
             {projects.map((project) => (
-               <Card key={project.id} variant="solid" className="rounded-md">
-                  <CardHeader className="flex items-start justify-between">
-                     <div className="space-y-1">
-                        <div className="flex items-center gap-2">
-                           <span className="text-base font-bold">{project.name}</span>
-                           <TerminalBadge
-                              variant={
-                                 project.status === "live"
-                                    ? "success"
-                                    : project.status === "wip"
-                                    ? "warning"
-                                    : "default"
-                              }
-                           >
-                              {project.status}
-                           </TerminalBadge>
-                        </div>
-                        <div className="text-(--muted)-xs">{project.tagline}</div>
-                     </div>
-                  </CardHeader>
-
-                  <CardBody className="space-y-3">
-                     <p className="text-sm leading-relaxed">{project.description}</p>
-
-                     {project.highlights && (
-                        <div className="space-y-1">
-                           <div className="text-xs font-semibold text-(--accent)">
-                              Highlights:
-                           </div>
-                           <TerminalList items={project.highlights} icon="→" />
-                        </div>
-                     )}
-
-                     <div className="flex flex-wrap gap-1.5">
-                        {project.tech.map((tech, idx) => (
-                           <TerminalBadge key={idx}>{tech}</TerminalBadge>
-                        ))}
-                     </div>
-                  </CardBody>
-
-                  <CardFooter className="flex items-center gap-4 text-xs">
-                     {project.links.live && (
-                        <TerminalLink href={project.links.live}>🌐 Live Demo</TerminalLink>
-                     )}
-                     {project.links.github && (
-                        <TerminalLink href={project.links.github}>🐙 GitHub</TerminalLink>
-                     )}
-                     {project.stats && (
-                        <span className="text-(--muted) ml-auto">
-                           ⭐ {project.stats.stars} • 🍴 {project.stats.forks}
-                        </span>
-                     )}
-                  </CardFooter>
-               </Card>
+               <ProjectCard
+                  key={project.id}
+                  project={project}
+               />
             ))}
-         </div>
+         </TerminalGrid>
       </TerminalSection>
 
       <TerminalCard variant="muted">
          <div className="text-sm">
-            💡 Use <code className="text-(--accent)">project &lt;name&gt;</code> for detailed
-            view
+            Use <TerminalCode inline>project &lt;name&gt;</TerminalCode> for detailed view.
+            Available: {projects.map((p) => p.id).join(", ")}
          </div>
       </TerminalCard>
    </div>
@@ -88,12 +41,13 @@ export const projectCmd = (args: string[]) => {
 
    if (!projectName) {
       return (
-         <div className="space-y-2">
-            <TerminalSection title="Usage">
-               <TerminalCard variant="accent">
-                  <code className="text-sm">project &lt;name&gt;</code>
-               </TerminalCard>
-            </TerminalSection>
+         <div className="space-y-3">
+            <TerminalCard variant="accent">
+               <div className="text-sm space-y-1">
+                  <div className="font-semibold">Usage</div>
+                  <TerminalCode inline>project &lt;name&gt;</TerminalCode>
+               </div>
+            </TerminalCard>
             <div className="text-xs text-(--muted)">
                Available: {projects.map((p) => p.id).join(", ")}
             </div>
@@ -106,8 +60,8 @@ export const projectCmd = (args: string[]) => {
    if (!project) {
       return (
          <TerminalEmptyState
-            icon="🔍"
-            message={`Project "${projectName}" not found. Try: ${projects
+            icon={<FiFolder className="text-4xl" />}
+            message={`Project "${projectName}" not found. Available: ${projects
                .map((p) => p.id)
                .join(", ")}`}
          />
@@ -118,7 +72,7 @@ export const projectCmd = (args: string[]) => {
       <div className="space-y-4">
          <TerminalSection title={project.name}>
             <div className="space-y-3">
-               <div className="flex items-center gap-2">
+               <div className="flex items-center gap-2 flex-wrap">
                   <TerminalBadge
                      variant={
                         project.status === "live"
@@ -138,7 +92,7 @@ export const projectCmd = (args: string[]) => {
                {project.longDescription && (
                   <div className="space-y-2">
                      {project.longDescription.map((para, idx) => (
-                        <p key={idx} className="text-sm leading-relaxed">
+                        <p key={idx} className="text-sm leading-relaxed text-(--app-fg)">
                            {para}
                         </p>
                      ))}
@@ -163,29 +117,32 @@ export const projectCmd = (args: string[]) => {
             <>
                <TerminalDivider />
                <TerminalSection title="Key Features">
-                  <TerminalList items={project.highlights} icon="✓" />
+                  <TerminalList items={project.highlights} />
                </TerminalSection>
             </>
          )}
 
          <TerminalDivider />
 
-         <TerminalSection title="Links">
-            <div className="flex gap-4">
-               {project.links.live && (
-                  <TerminalLink href={project.links.live}>🌐 Live Demo</TerminalLink>
-               )}
-               {project.links.github && (
-                  <TerminalLink href={project.links.github}>🐙 Source Code</TerminalLink>
-               )}
+         <TerminalCard variant="default">
+            <div className="space-y-2">
+               <div className="font-semibold text-sm">Links</div>
+               <div className="flex gap-4 flex-wrap">
+                  {project.links.live && (
+                     <TerminalLink href={project.links.live}>Live Demo</TerminalLink>
+                  )}
+                  {project.links.github && (
+                     <TerminalLink href={project.links.github}>Source Code</TerminalLink>
+                  )}
+               </div>
             </div>
-         </TerminalSection>
+         </TerminalCard>
 
          {project.stats && (
             <TerminalCard variant="accent">
                <div className="flex items-center gap-6 text-sm">
-                  <span>⭐ {project.stats.stars} stars</span>
-                  <span>🍴 {project.stats.forks} forks</span>
+                  <span className="font-mono">{project.stats.stars} stars</span>
+                  <span className="font-mono">{project.stats.forks} forks</span>
                </div>
             </TerminalCard>
          )}
@@ -201,7 +158,7 @@ export const skillsCmd = () => (
                <div className="text-sm font-semibold text-(--accent) uppercase tracking-wide">
                   {category.category}
                </div>
-               <div className="space-y-2">
+               <div className="space-y-3">
                   {category.skills.map((skill) => (
                      <TerminalProgress
                         key={skill.name}
@@ -216,15 +173,14 @@ export const skillsCmd = () => (
       </TerminalSection>
 
       <TerminalCard variant="muted">
-         <div className="text-sm space-y-2">
-            <div className="font-semibold">🎯 Learning Focus:</div>
+         <div className="space-y-2">
+            <div className="font-semibold text-sm">Learning Focus</div>
             <TerminalList
                items={[
                   "Advanced TypeScript patterns",
                   "System design & architecture",
                   "Developer tooling & CLI apps",
                ]}
-               icon="→"
             />
          </div>
       </TerminalCard>
@@ -234,8 +190,8 @@ export const skillsCmd = () => (
 export const github = () => {
    window.open("https://github.com/bug-free-dev", "_blank");
    return (
-      <TerminalCard variant="default">
-         <div className="text-sm">🐙 Opening GitHub profile in new tab...</div>
+      <TerminalCard variant="success">
+         <div className="text-sm">Opening GitHub profile in new tab...</div>
       </TerminalCard>
    );
 };
@@ -243,28 +199,34 @@ export const github = () => {
 export const stats = () => (
    <div className="space-y-4">
       <TerminalSection title="Portfolio Stats">
-         <TerminalCard variant="accent">
-            <div className="grid grid-cols-2 gap-4 text-sm">
-               <div>
-                  <div className="text-2xl font-bold text-(--accent)">{projects.length}</div>
-                  <div className="text-(--muted) text-xs">Projects Built</div>
+         <TerminalGrid cols={2}>
+            <TerminalCard variant="accent">
+               <div className="text-center">
+                  <div className="text-3xl font-bold text-(--accent)">{projects.length}</div>
+                  <div className="text-(--muted) text-xs mt-1">Projects Built</div>
                </div>
-               <div>
-                  <div className="text-2xl font-bold text-(--accent)">{skills.length}</div>
-                  <div className="text-(--muted) text-xs">Technologies</div>
+            </TerminalCard>
+            <TerminalCard variant="accent">
+               <div className="text-center">
+                  <div className="text-3xl font-bold text-(--accent)">{skills.length}</div>
+                  <div className="text-(--muted) text-xs mt-1">Technologies</div>
                </div>
-               <div>
-                  <div className="text-2xl font-bold text-(--success)">
+            </TerminalCard>
+            <TerminalCard variant="success">
+               <div className="text-center">
+                  <div className="text-3xl font-bold text-(--success)">
                      {projects.filter((p) => p.status === "live").length}
                   </div>
-                  <div className="text-(--muted) text-xs">Live Apps</div>
+                  <div className="text-(--muted) text-xs mt-1">Live Apps</div>
                </div>
-               <div>
-                  <div className="text-2xl font-bold text-(--info)">100%</div>
-                  <div className="text-(--muted) text-xs">Passion</div>
+            </TerminalCard>
+            <TerminalCard variant="info">
+               <div className="text-center">
+                  <div className="text-3xl font-bold text-(--info)">100%</div>
+                  <div className="text-(--muted) text-xs mt-1">Passion</div>
                </div>
-            </div>
-         </TerminalCard>
+            </TerminalCard>
+         </TerminalGrid>
       </TerminalSection>
    </div>
 );
