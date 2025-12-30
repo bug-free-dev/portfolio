@@ -1,6 +1,7 @@
 import React from "react";
 import { getCommand } from "./commandMap";
-import { TerminalCard } from "../components/ui/Terminal/TOutput";
+import { TerminalCard } from "../components/ui/Terminal";
+
 
 export const executeCommand = async (input: string): Promise<React.ReactNode> => {
    const trimmed = input.trim();

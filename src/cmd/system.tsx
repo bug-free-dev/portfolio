@@ -1,13 +1,11 @@
 import React from "react";
+import { TerminalCard, FileItem, TthemeCard } from "../components/ui/Terminal";
 import {
    TerminalSection,
-   TerminalList,
-   TerminalCard,
-   TerminalCode,
-   TerminalDivider,
    CommandGroup,
-   FileItem,
-   TthemeCard,
+   TerminalDivider,
+   TerminalList,
+   TerminalCode,
 } from "../components/ui/Terminal/TOutput";
 
 export const help = () => (

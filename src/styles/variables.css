@@ -84,7 +84,7 @@
   --btn-shadow-hover: 6px 6px 0 rgba(83, 83, 83, 0.55);
 
   /* Cards */
-  --card-bg: #18181b;
+  --card-bg: rgb(33, 33, 36);
   --card-bg-soft: #27272a;
   --card-fg: #f4f4f5;
   --card-border: #373744c9;

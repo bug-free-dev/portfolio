@@ -43,7 +43,7 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
    return (
       <header
          className={clsx(
-            "sticky top-0 z-50 w-full backdrop",
+            "sticky top-0 z-50 w-full backdrop-blur",
             "bg-(--nav-bg) border-b border-(--nav-border)"
          )}
       >
@@ -60,6 +60,7 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
                   </div>
                </a>
 
+               {/* ================= DESKTOP NAV ================= */}
                <nav className="hidden md:flex items-center gap-6">
                   {navItems.map((item) =>
                      item.action ? (
@@ -104,7 +105,7 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
                   >
                      <span
                         className={clsx(
-                           "absolute transition-all duration-200",
+                           "absolute transition-all duration-300",
                            theme === "dark" ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"
                         )}
                      >
@@ -112,7 +113,7 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
                      </span>
                      <span
                         className={clsx(
-                           "absolute transition-all duration-100",
+                           "absolute transition-all duration-300",
                            theme === "light" ? "rotate-0 opacity-100" : "rotate-90 opacity-0"
                         )}
                      >
@@ -139,13 +140,14 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
          <div
             className={clsx(
                "md:hidden overflow-hidden",
-               "transition-[max-height,opacity,transform] duration-100 ease-out border-t border-(--nav-border)",
+               "transition-[max-height,opacity,transform] duration-300 ease-out border-t border-(--nav-border)",
                open ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2"
             )}
          >
             <nav
                className={clsx(
                   "bg-(--nav-bg)/20",
+                  "border border-(--nav-border)",
                   "px-4 py-3 flex flex-col gap-1"
                )}
             >

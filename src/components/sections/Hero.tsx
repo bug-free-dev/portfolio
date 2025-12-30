@@ -70,14 +70,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
                )}
             >
                <div className="relative animate-float">
-                  {/* Outer pulsing glow */}
-                  <div className="absolute -inset-6 rounded-full bg-(--accent)/20 blur-2xl" />
-
-                  {/* Rotating shimmer ring */}
-                  <div className="absolute -inset-2 rounded-full opacity-50">
-                     <div className="absolute inset-0 rounded-full bg-linear-to-r from-(--accent) via-(--muted) to-(--accent)" />
-                  </div>
-
+                  
                   {/* Main ring */}
                   <div className="absolute -inset-1 rounded-full ring-4 ring-(--muted)/40 animate-breathe" />
 
@@ -87,7 +80,6 @@ const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
                      alt="Saurabh Kumar"
                      className={clsx(
                         "relative z-10 w-64 h-64 md:w-120 md:h-120 rounded-full object-cover",
-                        "shadow-2xl shadow-(--accent)/20",
                         "transition-transform duration-300 hover:scale-105"
                      )}
                   />
