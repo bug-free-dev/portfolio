@@ -10,7 +10,9 @@
 
   --radius: 0.5rem;
 
-  --accent: #2e2e2e;
+  --terminal-accent: rgb(92, 192, 114);
+  --accent: #facc15;
+  --accent-hover: rgb(220, 198, 100);
   
   --zinc-50:  #fafafa;
   --zinc-100: #f4f4f5;
@@ -35,8 +37,8 @@
   --btn-bg-soft: var(--zinc-100);
   --btn-fg: #000000;
   --btn-border: var(--zinc-300);
-  --btn-shadow: 4px 4px 0 var(--zinc-300);
-  --btn-shadow-hover: 6px 6px 0 var(--zinc-300);
+  --btn-shadow: 4px 4px 0 var(--zinc-200);
+  --btn-shadow-hover: 6px 6px 0 var(--zinc-200);
 
   --card-bg: #ffffff;
   --card-bg-soft: var(--zinc-50);
@@ -59,7 +61,8 @@
   --footer-fg: var(--zinc-500);
   --footer-border: var(--zinc-200);
 
-  --shadow-sm: 2px 2px 4px rgba(0,0,0,0.05);
-  --shadow-md: 4px 4px 8px rgba(0,0,0,0.08);
-  --shadow-lg: 6px 6px 12px rgba(0,0,0,0.12);
+--shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.035);
+--shadow-md: 4px 4px 0 rgba(0, 0, 0, 0.055);
+--shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.075);
+
 }

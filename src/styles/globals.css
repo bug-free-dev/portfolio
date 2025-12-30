@@ -30,7 +30,7 @@
   }
 
   ::selection {
-    background-color: var(--accent, #facc15);
+    background-color: #facc15;
     color: var(--app-bg, #fff);
   }
   
