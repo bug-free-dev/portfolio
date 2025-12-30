@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import clsx from "clsx";
 import Terminal from "./Terminal";
-import { TerminalSection, TerminalBadge, TerminalList } from "./TOutput";
+import { TerminalSection, TerminalBadge, TerminalList } from ".";
 
 interface TerminalOverlayProps {
    open: boolean;

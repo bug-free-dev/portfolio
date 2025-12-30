@@ -53,7 +53,6 @@ export interface Project {
    };
    highlights?: string[];
    year: number;
-   thumbnail?: string;
 }
 
 export interface Experience {

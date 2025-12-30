@@ -1,4 +1,5 @@
 export *  from "./CardHeader"
 export * from "./CardBody"
 export * from "./CardFooter"
-export {default as Card} from "./Card"
+export { default as Card } from "./Card"
+export *from "./ProjectCard"
