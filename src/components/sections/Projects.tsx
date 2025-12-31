@@ -42,8 +42,7 @@ const Projects: React.FC = () => {
                {/* Header */}
                <div
                   className={clsx(
-                     "transition-all duration-700 delay-100",
-                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                     "transition-all duration-700 delay-100 animate-fade-in-up",
                   )}
                >
                   <div className="flex items-center gap-4 mb-4">
@@ -57,7 +56,7 @@ const Projects: React.FC = () => {
                </div>
 
                {/* Projects Grid */}
-               <div className="grid md:grid-cols-2 gap-6">
+               <div className="grid md:grid-cols-2 gap-6 animate-fade-in-right">
                   {projects.map((project) => (
                      <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
                   ))}
@@ -68,7 +67,7 @@ const Projects: React.FC = () => {
             <Card
                className={clsx(
                   "backdrop-blur-sm mt-10",
-                  isVisible ? "animate-fade-in-up" : "opacity-0"
+                  isVisible ? "animate-fade-in-left" : "opacity-0"
                )}
             >
                <CardBody className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

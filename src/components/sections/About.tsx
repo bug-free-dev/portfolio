@@ -48,7 +48,7 @@ const About: React.FC = () => {
             <div
                className={clsx(
                   "transition-all duration-700 delay-100",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  "animate-fade-in-up",
                )}
             >
                <div className="flex items-center gap-4 mb-4">
@@ -66,7 +66,7 @@ const About: React.FC = () => {
             <div
                className={clsx(
                   "max-w-6xl space-y-5 text-sm leading-relaxed transition-all duration-700 delay-200",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                  "animate-fade-in-right"
                )}
             >
                <p>
@@ -84,7 +84,7 @@ const About: React.FC = () => {
             <div
                className={clsx(
                   "flex flex-wrap gap-2 transition-all duration-700 delay-300 animate-badge-pop",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"
                )}
             >
                {identityTags.map((tag) => (
@@ -96,7 +96,7 @@ const About: React.FC = () => {
 
             {/* Pro tip highlight (ONE card only) */}
             <Card
-               className={clsx("backdrop-blur-sm", isVisible ? "animate-fade-in-up" : "opacity-0")}
+               className={clsx("backdrop-blur-sm", isVisible ? "animate-fade-in-left" : "opacity-0")}
             >
                <CardBody className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div className="text-sm">

@@ -41,7 +41,7 @@ export const TipSection: React.FC<TipSectionProps> = ({ onOpenTerminal }) => {
             <div
                className={clsx(
                   "transition-all duration-700 delay-100",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  isVisible ? "opacity-100 animate-fade-in-right" : "opacity-0"
                )}
             >
                <div className="flex items-center gap-4 mb-4">
@@ -60,7 +60,7 @@ export const TipSection: React.FC<TipSectionProps> = ({ onOpenTerminal }) => {
             <div
                className={clsx(
                   "flex flex-wrap gap-3 transition-all duration-700 delay-200",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                 
                )}
             >
                {experimentalTags.map((tag) => (
@@ -73,7 +73,7 @@ export const TipSection: React.FC<TipSectionProps> = ({ onOpenTerminal }) => {
             {/* Pro Tip Card */}
             <Card
                className={clsx(
-                  isVisible ? "animate-fade-in-up" : "opacity-0"
+                  isVisible ? "animate-fade-in-left" : "opacity-0"
                )}
             >
                <CardBody className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

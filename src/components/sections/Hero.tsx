@@ -149,7 +149,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
                <div
                   className={clsx(
                      "flex items-center gap-4 pt-4",
-                     showContent && "animate-scale-in animation-delay-800"
+                     showContent && "animation-delay-800 animate-fade-in-left"
                   )}
                   style={{ opacity: 0 }}
                >
