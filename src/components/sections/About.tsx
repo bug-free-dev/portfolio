@@ -54,7 +54,7 @@ const About: React.FC = () => {
                <div className="flex items-center gap-4 mb-4">
                   <div className="h-1 w-12 bg-(--accent) rounded-full" />
                   <h2 className="text-4xl md:text-5xl font-bold">About</h2>
-                  <div className="h-1 flex-1 bg-(--accent) rounded-full opacity-30" />
+                  <div className="h-1 flex-1 bg-(--accent) rounded-full opacity-50" />
                </div>
 
                <p className="text-lg text-(--muted) max-w-6xl">
@@ -100,7 +100,7 @@ const About: React.FC = () => {
             >
                <CardBody className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div className="text-sm">
-                     <span className="font-semibold text-(--accent)">Pro tip</span>
+                     <span className="font-semibold text-(--accent)">💡 Pro tip</span>
                      <span className="text-(--muted)">
                         {" "}
                         — use terminal commands for deeper context

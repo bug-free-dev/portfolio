@@ -8,6 +8,7 @@ interface TerminalBadgeProps {
    variant?: BadgeVariant;
    size?: BadgeSize;
    color?: string;
+   onClick?: () => void;
 }
 
 const badgeVariantStyles: Record<BadgeVariant, string> = {
@@ -29,23 +30,26 @@ export const TerminalBadge: React.FC<TerminalBadgeProps> = ({
    variant = "default",
    size = "md",
    color,
+   onClick,
 }) => {
    return (
       <span
-         style={
-            color
+         style={{
+            ...(color
                ? {
                     color,
                     borderColor: color,
                  }
-               : undefined
-         }
+               : {}),
+            cursor: onClick ? "pointer" : "default",
+         }}
          className={clsx(
             "inline-flex items-center rounded border-2 font-bold uppercase tracking-wide",
             "bg-(--card-bg) animate-badge-pop",
             badgeVariantStyles[variant],
             badgeSizeStyles[size]
          )}
+         onClick={onClick}
       >
          {children}
       </span>

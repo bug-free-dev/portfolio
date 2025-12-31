@@ -11,6 +11,7 @@ import {
    FiX,
 } from "react-icons/fi";
 import { useTheme } from "../../theme/useTheme";
+import { PiLightbulbFilamentBold } from "react-icons/pi";
 
 interface NavItem {
    label: string;
@@ -26,6 +27,7 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
    const navItems: NavItem[] = [
       { label: "About", icon: <FiUser />, href: "#about" },
       { label: "Projects", icon: <FiFolder />, href: "#projects" },
+      { label: "Tips", icon: <PiLightbulbFilamentBold/>, href: "#tips" },
       {
          label: "GitHub",
          icon: <FiGithub />,
