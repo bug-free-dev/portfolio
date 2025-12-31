@@ -20,12 +20,12 @@ const Footer: React.FC = () => {
                   <h3 className="text-lg font-semibold text-(--app-fg)">Saurabh Kumar</h3>
 
                   <p className="text-sm max-w-md leading-relaxed">
-                     Frontend engineer building reliable interfaces, scalable design systems, and
-                     developer-centric products.
+                     Curious builder focused on crafting clean, efficient, and scalable web
+                     solutions. Passionate about open-source, design systems, and developer
+                     experience.
                   </p>
 
                   <div className="space-y-1 text-sm">
-                     <p>✔ React · TypeScript · UI Architecture</p>
                      <p>✔ Open-source contributor & system thinker</p>
                      <p>✔ Design systems over one-off components</p>
                   </div>
@@ -83,10 +83,9 @@ const Footer: React.FC = () => {
                   </h4>
 
                   <ul className="space-y-3 text-sm">
-
                      <li>
                         <a
-                           href="https://twitter.com/"
+                           href="https://twitter.com/ItsmeSaurabh18"
                            target="_blank"
                            rel="noreferrer"
                            className="inline-flex items-center gap-3 hover:text-(--accent) transition-colors"
@@ -102,16 +101,16 @@ const Footer: React.FC = () => {
                            className="inline-flex items-center gap-3 hover:text-(--accent) transition-colors"
                         >
                            <FiInstagram />
-                           bug-free-dev
+                           @itsme.shadow11
                         </a>
                      </li>
                      <li>
                         <a
-                           href="mailto:bugfreedev07@gmail.com"
+                           href="mailto:itsme.work11@gmail.com"
                            className="inline-flex items-center gap-3 hover:text-(--accent) transition-colors"
                         >
                            <FiMail />
-                           bugfreedev07@gmail.com
+                           itsme.work11@gmail.com
                         </a>
                      </li>
                   </ul>

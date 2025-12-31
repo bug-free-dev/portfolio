@@ -7,21 +7,21 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: CardVariant;
 }
 
-const base = "relative transition-all duration-300 ease-out text-[var(--card-fg)] overflow-hidden";
+const base = "relative transition-all duration-300 ease-out text-[var(--card-fg)] overflow-hidden rounded-lg";
 
 const variants: Record<CardVariant, string> = {
    solid: clsx(
       "bg-[var(--card-bg)]",
-      "border border-[var(--card-border)]",
+      "border-2 border-[var(--card-border)]",
       "hover:shadow-[var(--card-shadow-hover)]"
    ),
    outline: clsx(
       "bg-transparent",
-      "border border-[var(--card-border)]",
-      "hover:bg-[var(--card-bg-soft,rgba(0,0,0,0.03))]"
+      "border-2 border-[var(--card-border)]",
+      "hover:bg-[var(--card-bg-soft)]"
    ),
    accent: clsx(
-      "bg-[var(--accent)]",
+      "bg-[var(--accent)/40]",
       "hover:shadow-[var(--card-shadow-hover)]"
    ),
 };

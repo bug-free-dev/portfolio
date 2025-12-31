@@ -1,14 +1,21 @@
 import { clsx } from "clsx";
 
-type BadgeVariant = "success" | "error" | "warning" | "info" | "default";
+export type BadgeVariant = "success" | "error" | "warning" | "info" | "default";
 type BadgeSize = "sm" | "md" | "lg";
 
+interface TerminalBadgeProps {
+   children: React.ReactNode;
+   variant?: BadgeVariant;
+   size?: BadgeSize;
+   color?: string;
+}
+
 const badgeVariantStyles: Record<BadgeVariant, string> = {
-   success: "bg-(--card-bg) text-(--success) border-(--success)",
-   error: "bg-(--card-bg) text-(--error) border-(--error)",
-   warning: "bg-(--card-bg) text-(--warning) border-(--warning)",
-   info: "bg-(--card-bg) text-(--info) border-(--info)",
-   default: "bg-(--card-bg) text-(--terminal-accent) border-(--card-border)",
+   success: "text-(--success) border-(--success)",
+   error: "text-(--error) border-(--error)",
+   warning: "text-(--warning) border-(--warning)",
+   info: "text-(--info) border-(--info)",
+   default: "text-(--terminal-accent) border-(--card-border)",
 };
 
 const badgeSizeStyles: Record<BadgeSize, string> = {
@@ -17,16 +24,25 @@ const badgeSizeStyles: Record<BadgeSize, string> = {
    lg: "px-3 py-1.5 text-sm shadow-(--shadow-lg)",
 };
 
-export const TerminalBadge: React.FC<{
-   children: React.ReactNode;
-   variant?: BadgeVariant;
-   size?: BadgeSize;
-}> = ({ children, variant = "default", size = "md" }) => {
+export const TerminalBadge: React.FC<TerminalBadgeProps> = ({
+   children,
+   variant = "default",
+   size = "md",
+   color,
+}) => {
    return (
       <span
+         style={
+            color
+               ? {
+                    color,
+                    borderColor: color,
+                 }
+               : undefined
+         }
          className={clsx(
             "inline-flex items-center rounded border-2 font-bold uppercase tracking-wide",
-            "",
+            "bg-(--card-bg) animate-badge-pop",
             badgeVariantStyles[variant],
             badgeSizeStyles[size]
          )}

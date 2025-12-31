@@ -1,6 +1,7 @@
 import { FiFolder } from "react-icons/fi";
 import React from "react";
 import clsx from "clsx";
+import { TerminalBadge } from "./ui";
 
 interface TerminalCodeProps {
    children: React.ReactNode;
@@ -51,7 +52,59 @@ export const TerminalCode: React.FC<TerminalCodeProps> = ({
    );
 };
 
-export const TerminalDivider: React.FC = () => <div className="h-px bg-(--card-border) my-4" />;
+interface TerminalDividerProps {
+   label?: string;
+   sectionId?: string; 
+   lineColor?: string;
+   badgeColor?: string; 
+   thickness?: number;
+   className?: string;
+}
+export const TerminalDivider: React.FC<TerminalDividerProps> = ({
+   label,
+   sectionId,
+   lineColor = "var(--card-border)",
+   badgeColor,
+   thickness = 2,
+   className,
+}) => {
+   return (
+      <div
+         className={clsx(
+            "relative max-w-6xl mx-auto my-16 px-6 flex items-center justify-center",
+            className
+         )}
+         id={sectionId}
+      >
+         {/* Left Line */}
+         <div
+            className="flex-1"
+            style={{
+               height: thickness,
+               backgroundColor: lineColor,
+               minWidth: "100px",
+            }}
+         />
+
+         {/* Badge */}
+         {label && (
+            <div className="mx-4 shrink-0">
+               <TerminalBadge color={badgeColor}>{label}</TerminalBadge>
+            </div>
+         )}
+
+         {/* Right Line */}
+         <div
+            className="flex-1"
+            style={{
+               height: thickness,
+               backgroundColor: lineColor,
+               minWidth: "100px",
+            }}
+         />
+      </div>
+   );
+};
 
 
 export const TerminalEmptyState: React.FC<{

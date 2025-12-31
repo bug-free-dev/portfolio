@@ -20,8 +20,8 @@ export const projects: Project[] = [
          github: "https://github.com/bug-free-dev/firechat",
       },
       stats: {
-         stars: 24,
-         forks: 5,
+         stars: 1,
+         forks: 0,
       },
       highlights: [
          "Real-time messaging with <50ms latency",

@@ -1,7 +1,7 @@
 import type { Bio } from "./types";
 
 export const bio: Bio = {
-   name: "Saurabh Kumar",
+   name: "bugfreedev",
    title: "Frontend Engineer & Systems Thinker",
    tagline: "Building elegant interfaces with thoughtful architecture",
    location: "Kanpur, India",

@@ -19,7 +19,6 @@ export const help = () => (
                   { name: "about", description: "Detailed bio and philosophy" },
                   { name: "bio", description: "Same as about" },
                   { name: "contact", description: "Contact information" },
-                  { name: "resume", description: "Resume and CV info" },
                   { name: "location", description: "Current location" },
                ]}
             />

@@ -1,8 +1,4 @@
-import {
-   TerminalCard,
-   TerminalList,
-   TerminalSection,
-} from "../components/ui/Terminal/TOutput";
+import { TerminalCard, TerminalList, TerminalSection } from "../components/ui/Terminal/TOutput";
 
 export const sudo = (args: string[]) => {
    const messages = [
@@ -123,9 +119,7 @@ export const konami = () => {
          <TerminalCard variant="accent">
             <div className="text-sm">
                🎁 Achievement Unlocked: <strong>"Secret Seeker"</strong>
-               <div className="text-xs text-(--muted) mt-1">
-                  You found an easter egg! +100 XP
-               </div>
+               <div className="text-xs text-(--muted) mt-1">You found an easter egg! +100 XP</div>
             </div>
          </TerminalCard>
       </div>
@@ -194,7 +188,7 @@ export const credits = () => {
          <TerminalSection title="Credits">
             <TerminalList
                items={[
-                  "Built with ❤️ by Saurabh Kumar",
+                  "Built with ❤️ by bugfreedev",
                   "Powered by React + TypeScript + Vite",
                   "Terminal UI inspired by zsh",
                   "Design system with custom CSS variables",

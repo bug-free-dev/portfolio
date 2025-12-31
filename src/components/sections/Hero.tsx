@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { FiTerminal } from "react-icons/fi";
 import Button from "../ui/Button";
-import { TerminalBadge } from "../ui/Terminal";
+import { TerminalBadge, type BadgeVariant } from "../ui/Terminal";
 import { useTheme } from "../../theme/useTheme";
 
 interface HeroProps {
@@ -33,12 +33,24 @@ const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
       return () => clearInterval(i);
    }, []);
 
-   const badges = [
-      { label: "Available", variant: "success" as const },
-      { label: "React / TypeScript", variant: "info" as const },
-      { label: "Design Systems", variant: "default" as const },
-      { label: "Terminal UI", variant: "warning" as const },
-      { label: "Opinionated", variant: "error" as const },
+   const badges: { label: string; variant?: BadgeVariant; color?: string }[] = [
+      { label: "Available", variant: "success" },
+      { label: "Design Systems", variant: "default", color: "#a78bfa" },
+      { label: "Opinionated", variant: "warning" },
+
+      { label: "Curious", variant: "default", color: "#38bdf8" },
+      { label: "Exploring", variant: "default", color: "#94a3b8" },
+      { label: "Focused", variant: "default", color: "#facc15" },
+      { label: "Minimal", variant: "default", color: "#e5e7eb" },
+      { label: "Intentional", variant: "default", color: "#fb7185" },
+      { label: "Learning", variant: "default", color: "#60a5fa" },
+      { label: "Building", variant: "default", color: "#4ade80" },
+
+      { label: "Systems Thinker", variant: "default", color: "#c084fc" },
+      { label: "Problem Solver", variant: "default", color: "#2dd4bf" },
+      { label: "Detail Oriented", variant: "default", color: "#fbbf24" },
+      { label: "Self Driven", variant: "default", color: "#818cf8" },
+      { label: "Independent", variant: "default", color: "#9ca3af" },
    ];
 
    return (
@@ -69,17 +81,22 @@ const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
                   showContent && "animate-fade-in-right"
                )}
             >
-               <div className="relative animate-float">
-                  
+               <div className="relative">
+                  {/* Outer pulsing glow */}
+
+                  {/* Rotating shimmer ring */}
+                  <div className="absolute -inset-3 rounded-full opacity-50"></div>
+
                   {/* Main ring */}
-                  <div className="absolute -inset-1 rounded-full ring-4 ring-(--muted)/40 animate-breathe" />
+                  <div className="absolute -inset-2 rounded-full ring-4 ring-(--muted)/50 animate-breathe" />
 
                   {/* Profile Image */}
                   <img
                      src="/pfp.png"
                      alt="Saurabh Kumar"
                      className={clsx(
-                        "relative z-10 w-64 h-64 md:w-120 md:h-120 rounded-full object-cover",
+                        "relative z-10 w-84 h-84 md:w-120 md:h-120 rounded-full object-cover",
+                        "shadow-2xl shadow-(--accent)/20",
                         "transition-transform duration-300 hover:scale-105"
                      )}
                   />
@@ -121,7 +138,9 @@ const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
                         )}
                         style={{ animationDelay: `${300 + i * 100}ms`, opacity: 0 }}
                      >
-                        <TerminalBadge variant={badge.variant}>{badge.label}</TerminalBadge>
+                        <TerminalBadge variant={badge.variant} color={badge.color}>
+                           {badge.label}
+                        </TerminalBadge>
                      </div>
                   ))}
                </div>
@@ -141,13 +160,12 @@ const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
                      className="group relative overflow-hidden"
                   >
                      <span className="relative z-10">Open Terminal</span>
-                     
                   </Button>
                   <Button
                      variant="outline"
                      className="hover:scale-105 transition-transform duration-200"
                   >
-                     View Work
+                     <a href="#projects">View Work</a>
                   </Button>
                </div>
             </div>

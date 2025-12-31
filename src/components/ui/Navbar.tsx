@@ -3,7 +3,6 @@ import clsx from "clsx";
 import {
    FiUser,
    FiFolder,
-   FiStar,
    FiGithub,
    FiTerminal,
    FiMoon,
@@ -27,7 +26,6 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
    const navItems: NavItem[] = [
       { label: "About", icon: <FiUser />, href: "#about" },
       { label: "Projects", icon: <FiFolder />, href: "#projects" },
-      { label: "Skills", icon: <FiStar />, href: "#skills" },
       {
          label: "GitHub",
          icon: <FiGithub />,
@@ -43,7 +41,7 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
    return (
       <header
          className={clsx(
-            "sticky top-0 z-50 w-full backdrop-blur",
+            "sticky top-0 z-50 w-full backdrop-blur-xl",
             "bg-(--nav-bg) border-b border-(--nav-border)"
          )}
       >
@@ -139,20 +137,21 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
 
          <div
             className={clsx(
-               "md:hidden overflow-hidden",
-               "transition-[max-height,opacity,transform] duration-300 ease-out border-t border-(--nav-border)",
-               open ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2"
+               "md:hidden absolute left-0 right-0 top-full z-40",
+               "origin-top transform-gpu transition-all duration-200 ease-out",
+               open
+                  ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
             )}
          >
             <nav
                className={clsx(
-                  "bg-(--nav-bg)/20",
+                  "bg-(--nav-bg)",
                   "border border-(--nav-border)",
                   "px-4 py-3 flex flex-col gap-1"
                )}
             >
                {navItems.map((item) =>
-                  
                   item.action ? (
                      <button
                         key={item.label}
@@ -194,7 +193,6 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
                         {item.label}
                      </a>
                   )
-                  
                )}
             </nav>
          </div>
