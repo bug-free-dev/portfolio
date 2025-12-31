@@ -10,7 +10,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
-   const fullName = "Saurabh Kumar";
+   const fullName = "Saurabh";
    const [index, setIndex] = useState(0);
    const [cursor, setCursor] = useState(true);
    const [showContent, setShowContent] = useState(false);
@@ -93,7 +93,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
                   {/* Profile Image */}
                   <img
                      src="/pfp.png"
-                     alt="Saurabh Kumar"
+                     alt="Saurabh"
                      className={clsx(
                         "relative z-10 w-84 h-84 md:w-120 md:h-120 rounded-full object-cover",
                         "shadow-2xl shadow-(--accent)/20",

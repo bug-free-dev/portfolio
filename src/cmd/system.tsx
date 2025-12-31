@@ -38,8 +38,7 @@ export const help = () => (
                title="Social"
                commands={[
                   { name: "social", description: "All social media links" },
-                  { name: "email", description: "Email contact" },
-                  { name: "instagram", description: "Open Instagram" },
+                  { name: "dev.to", description: "Open Dev.to" },
                   { name: "twitter", description: "Open Twitter/X" },
                   { name: "npm", description: "Open npm profile" },
                   { name: "links", description: "Quick links overview" },
@@ -174,7 +173,7 @@ export const cat = (args: string[]) => {
       "about.txt": (
          <TerminalCard variant="muted">
             <div className="text-sm space-y-1">
-               <div>Frontend Engineer | Systems Thinker | Builder</div>
+               <div>Explorer | Thinker | Learner | Builder</div>
                <div className="text-(--muted)">
                   Building elegant interfaces with React, Next.js, and modern web technologies.
                </div>

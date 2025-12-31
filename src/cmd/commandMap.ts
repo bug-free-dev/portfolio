@@ -77,9 +77,9 @@ export const commandMap: Record<string, CommandInfo> = {
       description: "Same as social",
       category: "social",
    },
-   instagram: {
-      fn: social.instagram,
-      description: "Open Instagram profile",
+   "dev.to": {
+      fn: social.devto,
+      description: "Open Dev.to profile",
       category: "social",
    },
    twitter: {
@@ -90,11 +90,6 @@ export const commandMap: Record<string, CommandInfo> = {
    npm: {
       fn: social.npm,
       description: "Open npm profile",
-      category: "social",
-   },
-   email: {
-      fn: social.email,
-      description: "Email contact",
       category: "social",
    },
    links: {

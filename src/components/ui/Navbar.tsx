@@ -54,7 +54,7 @@ export const Navbar: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
                      <span className="absolute -inset-1 rounded-full bg-(--accent)/30 blur-md" />
                      <img
                         src="/pfp.png"
-                        alt="Saurabh Kumar"
+                        alt="Saurabh"
                         className="relative h-8 w-8 rounded-full object-cover ring-2 ring-(--muted)"
                      />
                   </div>

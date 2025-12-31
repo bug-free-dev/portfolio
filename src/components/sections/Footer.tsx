@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { FiGithub, FiTwitter, FiMail, FiGlobe, FiInstagram } from "react-icons/fi";
+import { FiGithub, FiTwitter, FiMail, FiGlobe, FiTerminal } from "react-icons/fi";
 import { SiNpm } from "react-icons/si";
 
 const Footer: React.FC = () => {
@@ -96,21 +96,21 @@ const Footer: React.FC = () => {
                      </li>
                      <li>
                         <a
-                           href="https://www.instagram.com/itsme.shadow11/"
-                           target="_blank"
-                           className="inline-flex items-center gap-3 hover:text-(--accent) transition-colors"
-                        >
-                           <FiInstagram />
-                           @itsme.shadow11
-                        </a>
-                     </li>
-                     <li>
-                        <a
                            href="mailto:itsme.work11@gmail.com"
                            className="inline-flex items-center gap-3 hover:text-(--accent) transition-colors"
                         >
                            <FiMail />
                            itsme.work11@gmail.com
+                        </a>
+                     </li>
+                     <li>
+                        <a
+                           href="https://www.dev.to/bug-free-dev"
+                           target="_blank"
+                           className="inline-flex items-center gap-3 hover:text-(--accent) transition-colors"
+                        >
+                           <FiTerminal />
+                           Dev.to
                         </a>
                      </li>
                   </ul>
@@ -120,7 +120,7 @@ const Footer: React.FC = () => {
             {/* ----------- Bottom Bar ----------- */}
             <div className="mt-16 pt-6 border-t border-(--footer-border)">
                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-                  <span>© {new Date().getFullYear()} Made with 💝 by Saurabh Kumar!</span>
+                  <span>© {new Date().getFullYear()} Made with 💝 by Saurabh!</span>
 
                   <span className="opacity-70">
                      Clean code · Thoughtful design · Long-term systems

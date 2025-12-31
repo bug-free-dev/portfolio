@@ -9,18 +9,18 @@ export const socials: Social[] = [
       handle: "@bug-free-dev",
    },
    {
-      platform: "Instagram",
-      username: "itsme.shadow11",
-      url: "https://www.instagram.com/itsme.shadow11/",
-      icon: "📸",
-      handle: "@itsme.shadow11",
+      platform: "Dev.to",
+      username: "bug-free-dev",
+      url: "https://dev.to/bug-free-dev",
+      icon: "💻",
+      handle: "@bug-free-dev",
    },
    {
       platform: "Twitter/X",
-      username: "bugfreedev",
-      url: "https://twitter.com/bugfreedev",
+      username: "ItsmeSaurabh18",
+      url: "https://twitter.com/ItsmeSaurabh18",
       icon: "🐦",
-      handle: "@bugfreedev",
+      handle: "@ItsmeSaurabh18",
    },
    {
       platform: "npm",
@@ -32,7 +32,7 @@ export const socials: Social[] = [
 ];
 
 export const contact: Contact = {
-   email: "bugfreedev07@gmail.com",
+   email: "itsme.work11@gmail.com",
    location: "Kanpur, India",
    timezone: "IST (GMT+5:30)",
    availability: "Open to opportunities",

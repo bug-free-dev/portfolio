@@ -1,4 +1,4 @@
-import { socials, contact } from "../data";
+import { socials } from "../data";
 import { Card, CardBody, CardHeader } from "../components/ui/Card";
 import {
    TerminalSection,
@@ -36,7 +36,7 @@ export const social = () => (
 
       <TerminalCard variant="accent">
          <div className="text-sm">
-            💡 Most active on <strong>GitHub</strong> and <strong>Instagram</strong>
+            💡 Most active on <strong>GitHub</strong> and <strong>Dev.to</strong>
          </div>
       </TerminalCard>
    </div>
@@ -58,14 +58,14 @@ export const githubCmd = () => {
    );
 };
 
-export const instagram = () => {
-   window.open("https://www.instagram.com/itsme.shadow11/", "_blank");
+export const devto = () => {
+   window.open("https://dev.to/bug-free-dev", "_blank");
    return (
       <TerminalCard variant="success">
          <div className="space-y-2 text-sm">
-            <div>📸 Opening Instagram profile...</div>
-            <TerminalLink href="https://www.instagram.com/itsme.shadow11/">
-               @itsme.shadow11
+            <div>Opening Dev.to profile...</div>
+            <TerminalLink href="https://www.dev.to/bug-free-dev">
+               Dev.to/@bug-free-dev
             </TerminalLink>
          </div>
       </TerminalCard>
@@ -73,12 +73,12 @@ export const instagram = () => {
 };
 
 export const twitter = () => {
-   window.open("https://twitter.com/bugfreedev", "_blank");
+   window.open("https://twitter.com/ItsmeSaurabh18", "_blank");
    return (
       <TerminalCard variant="success">
          <div className="space-y-2 text-sm">
             <div>🐦 Opening Twitter/X profile...</div>
-            <TerminalLink href="https://twitter.com/bugfreedev">@bugfreedev</TerminalLink>
+            <TerminalLink href="https://twitter.com/ItsmeSaurabh18">@ItsmeSaurabh18</TerminalLink>
          </div>
       </TerminalCard>
    );
@@ -95,36 +95,6 @@ export const npm = () => {
       </TerminalCard>
    );
 };
-
-export const email = () => (
-   <div className="space-y-3">
-      <TerminalSection title="Email Contact">
-         <TerminalCard variant="accent">
-            <div className="space-y-2">
-               <div className="flex items-center gap-2">
-                  <span className="text-xl">📧</span>
-                  <span className="font-semibold">{contact.email}</span>
-               </div>
-               <TerminalLink href={`mailto:${contact.email}`}>Send me an email</TerminalLink>
-            </div>
-         </TerminalCard>
-      </TerminalSection>
-
-      <TerminalCard variant="muted">
-         <div className="text-sm space-y-1">
-            <div className="font-semibold text-(--accent)">Response Time:</div>
-            <TerminalList
-               items={[
-                  "Usually within 24 hours",
-                  "Fastest on weekdays",
-                  "Please include context in subject line",
-               ]}
-               icon="→"
-            />
-         </div>
-      </TerminalCard>
-   </div>
-);
 
 export const links = () => (
    <div className="space-y-4">
@@ -148,10 +118,10 @@ export const links = () => (
                      <div className="font-semibold text-(--accent) mb-2">Social</div>
                      <TerminalList
                         items={[
-                           <TerminalLink href="https://www.instagram.com/itsme.shadow11/">
-                              Instagram
+                           <TerminalLink href="https://www.dev.to/bug-free-dev">
+                              Dev.to
                            </TerminalLink>,
-                           <TerminalLink href="https://twitter.com/bugfreedev">
+                           <TerminalLink href="https://twitter.com/ItsmeSaurabh18">
                               Twitter
                            </TerminalLink>,
                         ]}
