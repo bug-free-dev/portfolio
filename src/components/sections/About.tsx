@@ -38,7 +38,7 @@ const About: React.FC = () => {
    return (
       <section
          ref={sectionRef}
-         className="relative max-w-6xl px-6 mx-auto py-20 scroll-mt-20 overflow-hidden mt-10"
+         className="relative max-w-4xl px-6 mx-auto py-20 scroll-mt-20 overflow-hidden mt-10"
       >
          <div className="absolute top-16 left-12 w-40 h-40 bg-(--accent)/10 rounded-full blur-3xl animate-float" />
          <div className="absolute bottom-12 right-10 w-32 h-32 bg-(--accent)/10 rounded-full blur-3xl animate-float animation-delay-500" />
@@ -48,7 +48,7 @@ const About: React.FC = () => {
             <div
                className={clsx(
                   "transition-all duration-700 delay-100",
-                  "animate-fade-in-up",
+                  isVisible ? "animate-fade-in-up" : "opacity-0"
                )}
             >
                <div className="flex items-center gap-4 mb-4">
@@ -57,7 +57,7 @@ const About: React.FC = () => {
                   <div className="h-1 flex-1 bg-(--accent) rounded-full opacity-50" />
                </div>
 
-               <p className="text-lg text-(--muted) max-w-6xl">
+               <p className="text-lg text-(--muted) max-w-4xl">
                   I’m exploring, breaking things, rebuilding them, and learning how systems actually
                   work.
                </p>
@@ -65,8 +65,8 @@ const About: React.FC = () => {
 
             <div
                className={clsx(
-                  "max-w-6xl space-y-5 text-sm leading-relaxed transition-all duration-700 delay-200",
-                  "animate-fade-in-right"
+                  "max-w-4xl space-y-5 text-sm leading-relaxed transition-all duration-700 delay-200 ",
+                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"
                )}
             >
                <p>
@@ -83,8 +83,7 @@ const About: React.FC = () => {
             {/* Identity Tags */}
             <div
                className={clsx(
-                  "flex flex-wrap gap-2 transition-all duration-700 delay-300 animate-badge-pop",
-                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"
+                  "flex flex-wrap gap-2 transition-all duration-700 delay-300",
                )}
             >
                {identityTags.map((tag) => (

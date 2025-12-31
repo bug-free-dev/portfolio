@@ -32,7 +32,7 @@ const Projects: React.FC = () => {
       <>
          <section
             ref={sectionRef}
-            className="relative max-w-6xl mx-auto px-6 py-20 scroll-mt-20 overflow-hidden"
+            className="relative max-w-4xl mx-auto px-6 py-20 scroll-mt-20 overflow-hidden"
          >
             {/* Decorative Elements */}
             <div className="absolute top-20 left-10 w-40 h-40 bg-(--accent)/10 rounded-full blur-3xl animate-float animation-delay-200" />
@@ -42,7 +42,8 @@ const Projects: React.FC = () => {
                {/* Header */}
                <div
                   className={clsx(
-                     "transition-all duration-700 delay-100 animate-fade-in-up",
+                     "transition-all duration-700 delay-100",
+                     isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
                   )}
                >
                   <div className="flex items-center gap-4 mb-4">
@@ -56,7 +57,10 @@ const Projects: React.FC = () => {
                </div>
 
                {/* Projects Grid */}
-               <div className="grid md:grid-cols-2 gap-6 animate-fade-in-right">
+               <div className={clsx(
+                  "grid grid-cols-1 sm:grid-cols-2 gap-6",
+                  isVisible ? "animate-scale-in" : "opacity-0"
+               )}>
                   {projects.map((project) => (
                      <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
                   ))}
@@ -67,7 +71,7 @@ const Projects: React.FC = () => {
             <Card
                className={clsx(
                   "backdrop-blur-sm mt-10",
-                  isVisible ? "animate-fade-in-left" : "opacity-0"
+                  isVisible ? "animate-fade-in-right opacity-100" : "opacity-0"
                )}
             >
                <CardBody className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

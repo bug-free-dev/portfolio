@@ -30,7 +30,7 @@ export const TipSection: React.FC<TipSectionProps> = ({ onOpenTerminal }) => {
    return (
       <section
          ref={sectionRef}
-         className="relative max-w-6xl mx-auto px-6 py-20 scroll-mt-20 overflow-hidden"
+         className="relative max-w-4xl mx-auto px-6 py-20 scroll-mt-20 overflow-hidden"
       >
          {/* Decorative Elements */}
          <div className="absolute top-16 left-12 w-40 h-40 bg-rose-300/10 rounded-full blur-3xl animate-float" />
@@ -41,7 +41,7 @@ export const TipSection: React.FC<TipSectionProps> = ({ onOpenTerminal }) => {
             <div
                className={clsx(
                   "transition-all duration-700 delay-100",
-                  isVisible ? "opacity-100 animate-fade-in-right" : "opacity-0"
+                  isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
                )}
             >
                <div className="flex items-center gap-4 mb-4">
@@ -49,7 +49,7 @@ export const TipSection: React.FC<TipSectionProps> = ({ onOpenTerminal }) => {
                   <h2 className="text-4xl md:text-5xl font-bold">Experimental</h2>
                   <div className="h-1 flex-1 bg-rose-300 rounded-full" />
                </div>
-               <p className="text-lg text-(--muted) mt-2 max-w-6xl">
+               <p className="text-lg text-(--muted) mt-2 max-w-4xl">
                   This portfolio is currently experimental and evolving. It’s a playground where I
                   explore, build, and learn. If you’re on a PC or laptop, try using the terminal
                   commands for full experience.
