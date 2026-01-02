@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 
 export const TerminalProgress: React.FC<{
-   label: string;
+   label: ReactNode | string;
    value: number;
    max?: number;
    showValue?: boolean;
