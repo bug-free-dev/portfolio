@@ -15,7 +15,7 @@ export const TerminalInput: FC<TerminalInputProps> = ({
    value,
    onChange,
    onKeyDown,
-   user = "saurabh",
+   user = "root",
    host = "portfolio",
    cwd = "~",
    isProcessing = false,

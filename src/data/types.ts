@@ -20,14 +20,12 @@ export interface Social {
 }
 import type { IconType } from "react-icons";
 
-/* -------------------- Types -------------------- */
-
 export type SkillCategoryKey = "frontend" | "backend" | "devops" | "tools" | "design" | "cognitive";
 
 export interface Skill {
    name: string;
    category: SkillCategoryKey;
-   level: number; // 0–100
+   level: number;
    icon: IconType;
    description?: string;
 }
@@ -46,7 +44,7 @@ export interface Project {
    description: string;
    longDescription?: string[];
    tech: string[];
-   status: "live" | "wip" | "archived" | "concept";
+   status: "live" | "wip" | "archived" | "concept" | "contributed";
    featured: boolean;
    links: {
       live?: string;

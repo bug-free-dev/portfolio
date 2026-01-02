@@ -4,7 +4,6 @@ import {
    TerminalList,
    TerminalBadge,
    TerminalProgress,
-   TerminalDivider,
    TerminalLink,
    TerminalCard,
    TerminalEmptyState,
@@ -19,10 +18,7 @@ export const projectsCmd = () => (
       <TerminalSection title="Featured Projects">
          <TerminalGrid cols={2}>
             {projects.map((project) => (
-               <ProjectCard
-                  key={project.id}
-                  project={project}
-               />
+               <ProjectCard key={project.id} project={project} />
             ))}
          </TerminalGrid>
       </TerminalSection>
@@ -101,8 +97,6 @@ export const projectCmd = (args: string[]) => {
             </div>
          </TerminalSection>
 
-         <TerminalDivider />
-
          <TerminalSection title="Tech Stack">
             <div className="flex flex-wrap gap-2">
                {project.tech.map((tech, idx) => (
@@ -115,14 +109,14 @@ export const projectCmd = (args: string[]) => {
 
          {project.highlights && (
             <>
-               <TerminalDivider />
+               
                <TerminalSection title="Key Features">
                   <TerminalList items={project.highlights} />
                </TerminalSection>
             </>
          )}
 
-         <TerminalDivider />
+         
 
          <TerminalCard variant="default">
             <div className="space-y-2">
@@ -202,7 +196,6 @@ export const skillsCmd = () => (
       </TerminalCard>
    </div>
 );
-
 
 export const github = () => {
    window.open("https://github.com/bug-free-dev", "_blank");

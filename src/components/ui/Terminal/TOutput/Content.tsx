@@ -26,6 +26,7 @@ export const TerminalCode: React.FC<TerminalCodeProps> = ({
                "whitespace-nowrap",
                "transition-colors",
                "hover:bg-(--card-bg) shadow-(--shadow-sm)",
+               "max-w-full break-all",
                className
             )}
          >
@@ -42,10 +43,11 @@ export const TerminalCode: React.FC<TerminalCodeProps> = ({
             "overflow-x-auto",
             "transition-colors",
             "hover:border-(--accent)/30",
+            "w-full max-w-full",
             className
          )}
       >
-         <code className="text-(--terminal-accent) text-sm font-mono leading-relaxed">
+         <code className="text-(--terminal-accent) text-sm font-mono leading-relaxed break-all">
             {children}
          </code>
       </pre>
@@ -54,52 +56,57 @@ export const TerminalCode: React.FC<TerminalCodeProps> = ({
 
 interface TerminalDividerProps {
    label?: string;
-   sectionId?: string; 
+   sectionId?: string;
    lineColor?: string;
-   badgeColor?: string; 
+   badgeColor?: string;
    thickness?: number;
+   variant?: "section" | "terminal";
    className?: string;
 }
+
 export const TerminalDivider: React.FC<TerminalDividerProps> = ({
    label,
    sectionId,
    lineColor = "var(--card-border)",
    badgeColor,
    thickness = 2,
+   variant = "section",
    className,
 }) => {
    return (
       <div
+         id={sectionId}
          className={clsx(
-            "relative max-w-6xl mx-auto my-16 px-6 flex items-center justify-center",
+            "relative w-full max-w-full mx-auto px-2 sm:px-6 flex items-center justify-center min-w-0",
+            variant === "section" && "my-6 sm:my-10",
+            variant === "terminal" && "my-2 sm:my-3",
             className
          )}
-         id={sectionId}
       >
          {/* Left Line */}
          <div
-            className="flex-1"
+            className="min-w-0"
             style={{
                height: thickness,
                backgroundColor: lineColor,
-               minWidth: "100px",
+               minWidth: "60px",
             }}
          />
 
          {/* Badge */}
          {label && (
-            <div className="mx-4 shrink-0">
+            <div className="mx-2 sm:mx-3 shrink-0">
                <TerminalBadge color={badgeColor}>{label}</TerminalBadge>
             </div>
          )}
 
          {/* Right Line */}
          <div
-            className="flex-1"
+            className="min-w-0"
             style={{
                height: thickness,
                backgroundColor: lineColor,
-               minWidth: "100px",
+               minWidth: "60px",
             }}
          />
       </div>
@@ -111,8 +118,8 @@ export const TerminalEmptyState: React.FC<{
    icon?: React.ReactNode;
    message: string;
 }> = ({ icon = <FiFolder className="text-4xl" />, message }) => (
-   <div className="flex flex-col items-center justify-center py-8 text-(--muted)">
+   <div className="flex flex-col items-center justify-center py-8 text-(--muted) w-full">
       <div className="mb-3 text-(--terminal-accent)">{icon}</div>
-      <span className="text-sm">{message}</span>
+      <span className="text-sm wrap-break-word text-center px-4">{message}</span>
    </div>
 );

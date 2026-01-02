@@ -88,14 +88,14 @@ export const skills: Skill[] = [
    {
       name: "Docker",
       category: "devops",
-      level: 80,
+      level: 50,
       icon: SiDocker,
       description: "Containerizing applications for consistent environments",
    },
    {
       name: "GitHub Actions",
       category: "devops",
-      level: 80,
+      level: 50,
       icon: SiGithubactions,
       description: "CI/CD pipelines for build, lint, and deploy",
    },
