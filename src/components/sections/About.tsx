@@ -66,7 +66,6 @@ const About: React.FC = () => {
             <div
                className={clsx(
                   "max-w-4xl space-y-5 text-sm leading-relaxed transition-all duration-700 delay-200 ",
-                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"
                )}
             >
                <p>

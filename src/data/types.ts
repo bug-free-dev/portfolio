@@ -18,17 +18,22 @@ export interface Social {
    icon: string;
    handle?: string;
 }
+import type { IconType } from "react-icons";
+
+export type SkillCategoryKey = "frontend" | "backend" | "devops" | "tools" | "design" | "cognitive";
 
 export interface Skill {
    name: string;
-   category: "frontend" | "backend" | "tools" | "design" | "other";
+   category: SkillCategoryKey;
    level: number;
-   icon?: string;
+   icon: IconType;
    description?: string;
 }
 
 export interface SkillCategory {
-   category: string;
+   key: SkillCategoryKey;
+   title: string;
+   icon: IconType;
    skills: Skill[];
 }
 
@@ -39,7 +44,7 @@ export interface Project {
    description: string;
    longDescription?: string[];
    tech: string[];
-   status: "live" | "wip" | "archived" | "concept";
+   status: "live" | "wip" | "archived" | "concept" | "contributed";
    featured: boolean;
    links: {
       live?: string;
@@ -53,15 +58,6 @@ export interface Project {
    };
    highlights?: string[];
    year: number;
-}
-
-export interface Experience {
-   company: string;
-   position: string;
-   duration: string;
-   description: string[];
-   tech: string[];
-   type: "full-time" | "part-time" | "freelance" | "internship";
 }
 
 export interface Contact {

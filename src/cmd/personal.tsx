@@ -4,7 +4,6 @@ import {
    TerminalTable,
    TerminalList,
    TerminalCard,
-   TerminalDivider,
    TerminalBadge,
 } from "../components/ui/Terminal/";
 
@@ -20,7 +19,7 @@ export const whoami = () => (
          </div>
       </TerminalSection>
 
-      <TerminalDivider />
+      
 
       <div className="text-sm text-(--muted)">
          💡 Try <code className="text-(--accent)">about</code> for detailed info
@@ -40,13 +39,13 @@ export const about = () => (
          </div>
       </TerminalSection>
 
-      <TerminalDivider />
+      
 
       <TerminalSection title="Philosophy">
          <TerminalList items={bio.philosophy} icon="→" className="text-sm" />
       </TerminalSection>
 
-      <TerminalDivider />
+      
 
       <TerminalSection title="Interests">
          <div className="flex flex-wrap gap-2">

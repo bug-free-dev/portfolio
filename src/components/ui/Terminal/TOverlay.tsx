@@ -9,18 +9,18 @@ interface TerminalOverlayProps {
 }
 
 const WelcomeMessage = () => (
-   <div className="space-y-3">
+   <div className="space-y-3 max-w-full">
       <TerminalSection title="Welcome to Saurabh's Portfolio Terminal">
-         <div className="text-sm space-y-2">
-            <p>
+         <div className="text-xs sm:text-sm space-y-2 max-w-full">
+            <p className="wrap-break-word whitespace-normal">
                This is an interactive terminal interface. Type commands to explore my work, skills,
                and experience.
             </p>
          </div>
       </TerminalSection>
 
-      <div className="space-y-2">
-         <div className="text-xs font-semibold text-(--accent) uppercase tracking-wide">
+      <div className="space-y-2 max-w-full">
+         <div className="text-[10px] sm:text-xs font-semibold text-(--accent) uppercase tracking-wide">
             Quick Start
          </div>
          <TerminalList
@@ -34,7 +34,7 @@ const WelcomeMessage = () => (
                <>
                   Use <TerminalBadge>projects</TerminalBadge> to see my work
                </>,
-               "Use ↑/↓ arrows to navigate command history",
+               <span className="wrap-break-word whitespace-normal inline-block">Use ↑/↓ arrows to navigate command history</span>,
             ]}
             icon="→"
          />
@@ -60,13 +60,13 @@ export const TerminalOverlay: React.FC<TerminalOverlayProps> = ({ open, onClose 
          <div
             onClick={(e) => e.stopPropagation()}
             className={clsx(
-               "w-full max-w-4xl max-h-[90vh] min-w-0",
+               "w-[calc(100vw-1rem)] sm:w-[calc(100vw-2rem)] max-w-4xl max-h-[90vh]",
                "animate-in fade-in zoom-in duration-200"
             )}
          >
             <Terminal
-               title="saurabh@portfolio ~ zsh"
-               className="h-full"
+               title="bugfreedev ~ zsh"
+               className="h-full w-full"
                onClose={onClose}
                initialCommands={[
                   {

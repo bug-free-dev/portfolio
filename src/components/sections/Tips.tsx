@@ -78,7 +78,7 @@ export const TipSection: React.FC<TipSectionProps> = ({ onOpenTerminal }) => {
             >
                <CardBody className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div className="text-sm flex flex-wrap items-center gap-2">
-                     <span className="font-semibold text-orange-400">💡 Pro tip</span>
+                     <span className="font-semibold text-yellow-400">💡 Pro tip</span>
                      <span className="text-(--muted)">
                         — use{" "}
                         <TerminalBadge

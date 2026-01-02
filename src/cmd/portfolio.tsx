@@ -4,7 +4,6 @@ import {
    TerminalList,
    TerminalBadge,
    TerminalProgress,
-   TerminalDivider,
    TerminalLink,
    TerminalCard,
    TerminalEmptyState,
@@ -19,10 +18,7 @@ export const projectsCmd = () => (
       <TerminalSection title="Featured Projects">
          <TerminalGrid cols={2}>
             {projects.map((project) => (
-               <ProjectCard
-                  key={project.id}
-                  project={project}
-               />
+               <ProjectCard key={project.id} project={project} />
             ))}
          </TerminalGrid>
       </TerminalSection>
@@ -101,8 +97,6 @@ export const projectCmd = (args: string[]) => {
             </div>
          </TerminalSection>
 
-         <TerminalDivider />
-
          <TerminalSection title="Tech Stack">
             <div className="flex flex-wrap gap-2">
                {project.tech.map((tech, idx) => (
@@ -115,14 +109,14 @@ export const projectCmd = (args: string[]) => {
 
          {project.highlights && (
             <>
-               <TerminalDivider />
+               
                <TerminalSection title="Key Features">
                   <TerminalList items={project.highlights} />
                </TerminalSection>
             </>
          )}
 
-         <TerminalDivider />
+         
 
          <TerminalCard variant="default">
             <div className="space-y-2">
@@ -151,35 +145,51 @@ export const projectCmd = (args: string[]) => {
 };
 
 export const skillsCmd = () => (
-   <div className="space-y-4">
+   <div className="space-y-6">
       <TerminalSection title="Technical Skills">
-         {skillsByCategory.map((category, idx) => (
-            <div key={idx} className="space-y-3 mb-6">
-               <div className="text-sm font-semibold text-(--accent) uppercase tracking-wide">
-                  {category.category}
+         {skillsByCategory.map((category) => (
+            <div key={category.key} className="space-y-3 mb-6">
+               {/* Category Header */}
+               <div className="flex items-center gap-2 text-sm font-semibold text-(--accent) uppercase tracking-wide">
+                  <category.icon className="size-4 opacity-80" />
+                  <span>{category.title}</span>
                </div>
+
+               {/* Skills */}
                <div className="space-y-3">
-                  {category.skills.map((skill) => (
-                     <TerminalProgress
-                        key={skill.name}
-                        label={`${skill.icon} ${skill.name}`}
-                        value={skill.level}
-                        showValue
-                     />
-                  ))}
+                  {category.skills.map((skill) => {
+                     const Icon = skill.icon;
+                     return (
+                        <TerminalProgress
+                           key={skill.name}
+                           label={
+                              <span className="flex items-center gap-2">
+                                 <Icon className="size-4 opacity-80" />
+                                 <span>{skill.name}</span>
+                              </span>
+                           }
+                           value={skill.level}
+                           showValue
+                        />
+                     );
+                  })}
                </div>
             </div>
          ))}
       </TerminalSection>
 
+      {/* Learning & Growth */}
       <TerminalCard variant="muted">
-         <div className="space-y-2">
-            <div className="font-semibold text-sm">Learning Focus</div>
+         <div className="space-y-3">
+            <div className="font-semibold text-sm">Learning & Growth</div>
+
             <TerminalList
                items={[
-                  "Advanced TypeScript patterns",
-                  "System design & architecture",
-                  "Developer tooling & CLI apps",
+                  "Currently strengthening design thinking, core engineering skills, and first-principles reasoning",
+                  "Learning Java as part of my academic curriculum",
+                  "Actively exploring new technologies to build tools that make people's lives easier and better",
+                  "Deepening understanding of DevOps, system design, and developer experience",
+                  "Always open to guidance, feedback, and learning from experienced engineers",
                ]}
             />
          </div>
