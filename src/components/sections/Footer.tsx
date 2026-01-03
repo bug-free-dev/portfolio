@@ -20,21 +20,19 @@ const Footer: React.FC = () => {
                   <h3 className="text-lg font-semibold text-(--app-fg)">Saurabh Kumar</h3>
 
                   <p className="text-sm max-w-md leading-relaxed">
-                     Curious builder focused on crafting clean, efficient, and scalable web
-                     solutions. Passionate about open-source, design systems, and developer
-                     experience.
+                     Building useful things for the web — the kind I once wished already existed. I
+                     enjoy turning ideas into simple, reliable, and pleasant experiences.
                   </p>
 
-                  <div className="space-y-1 text-sm">
-                     <p>✔ Open-source contributor & system thinker</p>
-                     <p>✔ Design systems over one-off components</p>
+                  <div className="text-sm opacity-80">
+                     Curious builder · Open-source friendly · Always learning
                   </div>
                </div>
 
                {/* ---------- Ecosystem ---------- */}
                <div className="space-y-4">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-(--app-fg)">
-                     Ecosystem
+                     Find me online
                   </h4>
 
                   <ul className="space-y-3 text-sm">
@@ -65,8 +63,6 @@ const Footer: React.FC = () => {
                      <li>
                         <a
                            href="/"
-                           target="_blank"
-                           rel="noreferrer"
                            className="inline-flex items-center gap-3 hover:text-(--accent) transition-colors"
                         >
                            <FiGlobe />
@@ -79,7 +75,7 @@ const Footer: React.FC = () => {
                {/* ---------- Connect ---------- */}
                <div className="space-y-4">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-(--app-fg)">
-                     Connect
+                     Get in touch
                   </h4>
 
                   <ul className="space-y-3 text-sm">
@@ -94,19 +90,22 @@ const Footer: React.FC = () => {
                            Twitter / X
                         </a>
                      </li>
+
                      <li>
                         <a
                            href="mailto:itsme.work11@gmail.com"
                            className="inline-flex items-center gap-3 hover:text-(--accent) transition-colors"
                         >
                            <FiMail />
-                           itsme.work11@gmail.com
+                           Email
                         </a>
                      </li>
+
                      <li>
                         <a
                            href="https://www.dev.to/bug-free-dev"
                            target="_blank"
+                           rel="noreferrer"
                            className="inline-flex items-center gap-3 hover:text-(--accent) transition-colors"
                         >
                            <FiTerminal />
@@ -120,15 +119,14 @@ const Footer: React.FC = () => {
             {/* ----------- Bottom Bar ----------- */}
             <div className="mt-16 pt-6 border-t border-(--footer-border)">
                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-                  <span>© {new Date().getFullYear()} Made with 💝 by Saurabh!</span>
+                  <span>© {new Date().getFullYear()} Made with 💝 by Saurabh Kumar</span>
 
-                  <span className="opacity-70">
-                     Clean code · Thoughtful design · Long-term systems
-                  </span>
+                  <span className="opacity-70">Think → Build → Break → Learn → Repeat</span>
                </div>
             </div>
          </div>
       </footer>
    );
 };
+
 export default Footer;

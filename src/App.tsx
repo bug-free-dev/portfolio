@@ -43,7 +43,7 @@ const App = () => {
 
          {/** Thank you */}
          <Divider
-            label="Than you!"
+            label="Thank you for being here!"
          />
          {/* Footer */}
          <Footer />

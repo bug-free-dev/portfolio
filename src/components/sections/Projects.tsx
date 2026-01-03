@@ -59,10 +59,9 @@ const Projects: React.FC = () => {
                {/* Projects Grid */}
                <div className={clsx(
                   "grid grid-cols-1 sm:grid-cols-2 gap-6",
-                  isVisible ? "animate-scale-in" : "opacity-0"
                )}>
                   {projects.map((project) => (
-                     <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
+                     <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} className="animate-scale-in"/>
                   ))}
                </div>
             </div>

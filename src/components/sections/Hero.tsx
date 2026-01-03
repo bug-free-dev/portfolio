@@ -35,7 +35,6 @@ const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
 
    const badges: { label: string; variant?: BadgeVariant; color?: string }[] = [
       { label: "Available", variant: "success" },
-      { label: "Design Systems", variant: "default", color: "#a78bfa" },
       { label: "Opinionated", variant: "warning" },
 
       { label: "Curious", variant: "default", color: "#38bdf8" },
